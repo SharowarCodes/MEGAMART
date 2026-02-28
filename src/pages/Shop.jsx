@@ -31,6 +31,9 @@ const Shop = () => {
   const [priceRange, setPriceRange] = useState([0, 50000]);
   const [sortBy, setSortBy] = useState('featured');
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
+  const [brands, setBrands] = useState([]);
   
   const {
     currentPage,
