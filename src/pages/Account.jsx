@@ -6,7 +6,7 @@ import { User, MapPin, CreditCard, Package, Settings, LogOut, Edit, Plus, Trash2
 
 const Account = () => {
   const navigate = useNavigate();
-  const { user, isAuthenticated, logout, updateProfile, addAddress, updateAddress, deleteAddress, addPaymentMethod, orders } = useUser();
+  const { user, isAuthenticated, logout, updateProfile, addAddress, updateAddress, deleteAddress, orders } = useUser();
   const { showSuccess, showError } = useNotification();
   
   const [activeTab, setActiveTab] = useState('profile');

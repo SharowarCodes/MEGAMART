@@ -77,13 +77,12 @@ const Footer = () => {
                 <span>+91 ******</span>
               </a>
               
-              <a 
-                href="#" 
+              <button 
                 className="flex items-center space-x-3 text-gray-600 hover:text-blue-600 transition-colors duration-200"
               >
                 <Globe className="h-5 w-5" />
                 <span>created my robin</span>
-              </a>
+              </button>
             </div>
 
             {/* Download App Section */}

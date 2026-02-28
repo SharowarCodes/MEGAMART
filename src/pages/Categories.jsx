@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { categories } from '../constants/products';
-import { ChevronRight, Package, Star, TrendingUp, ShoppingBag, Baby, Dumbbell, Gift } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 const Categories = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   // All 7 requested categories plus existing ones
   const mainCategories = [

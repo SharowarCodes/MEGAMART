@@ -6,10 +6,7 @@ import {
   babyCare, 
   sportsFitness, 
   giftsAccessories, 
-  foodBeverages,
-  brands,
-  categories,
-  dailyEssentials
+  foodBeverages
 } from '../constants/products';
 
 // Enhanced product data with detailed information
@@ -483,8 +480,6 @@ export const productsAPI = {
   getPriceRanges: async () => {
     await new Promise(resolve => setTimeout(resolve, 50));
     const prices = enhancedProducts.map(p => p.price);
-    const min = Math.min(...prices);
-    const max = Math.max(...prices);
     const ranges = [
       { min: 0, max: 500, label: 'Under ₹500', count: 0 },
       { min: 500, max: 1000, label: '₹500 - ₹1,000', count: 0 },

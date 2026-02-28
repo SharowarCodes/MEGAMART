@@ -3,10 +3,9 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
 import { useUser } from '../contexts/UserContext';
 import { useNotification } from '../contexts/NotificationContext';
-import { CreditCard, Smartphone, Truck, MapPin, User, Phone, Mail, Lock, ArrowRight, ArrowLeft, Check } from 'lucide-react';
+import { CreditCard, Smartphone, Truck, MapPin, Lock, ArrowRight, ArrowLeft, Check } from 'lucide-react';
 
 const Checkout = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const { items, clearCart } = useCart();
   const { user, addOrder } = useUser();

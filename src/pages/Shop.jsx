@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useParams, useSearchParams, Link } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { useFilter } from '../contexts/FilterContext';
 import { useCart } from '../contexts/CartContext';
 import { useWishlist } from '../contexts/WishlistContext';
@@ -15,14 +15,7 @@ import {
   Grid, 
   List, 
   ChevronDown, 
-  ChevronRight, 
-  Search,
-  SlidersHorizontal,
-  X,
-  Package,
-  Sparkles,
-  TrendingUp,
-  Clock
+  Package
 } from 'lucide-react';
 
 const Shop = () => {
@@ -38,9 +31,6 @@ const Shop = () => {
   const [priceRange, setPriceRange] = useState([0, 50000]);
   const [sortBy, setSortBy] = useState('featured');
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
-  const [brands, setBrands] = useState([]);
   
   const {
     currentPage,
@@ -198,14 +188,7 @@ const Shop = () => {
     if (currentPage > totalPagesCount) {
       setCurrentPage(1);
     }
-  }, [filteredAndSortedProducts, totalPagesCount, currentPage]);
-
-  // Get current page products
-  const paginatedItems = useMemo(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    return filteredAndSortedProducts.slice(startIndex, endIndex);
-  }, [filteredAndSortedProducts, currentPage, itemsPerPage]);
+  }, [filteredAndSortedProducts, totalPagesCount, currentPage, setCurrentPage]);
 
   // Get unique brands for filter
   const uniqueBrands = useMemo(() => {
@@ -218,21 +201,6 @@ const Shop = () => {
       .slice(0, 10)
       .map(([brand]) => brand);
   }, [products]);
-
-  // Get price range stats
-  const priceStats = useMemo(() => {
-    const prices = products.map(p => p.price);
-    return {
-      min: Math.min(...prices),
-      max: Math.max(...prices),
-      avg: prices.reduce((sum, price) => sum + price, 0) / prices.length
-    };
-  }, [products]);
-
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    showSuccess(`${product.name} added to cart!`);
-  };
 
   const handleAddToWishlist = (product) => {
     addToWishlist(product);
@@ -258,18 +226,6 @@ const Shop = () => {
   const handlePriceRangeChange = (newRange) => {
     setPriceRange(newRange);
     updateFilters({ priceRange: newRange });
-  };
-
-  const handleSortChange = (newSortBy) => {
-    setSortBy(newSortBy);
-    updateFilters({ sortBy: newSortBy });
-  };
-
-  const handleClearAllFilters = () => {
-    setPriceRange([0, 50000]);
-    setSortBy('featured');
-    clearFilters();
-    setCurrentPage(1);
   };
 
   const ProductCard = ({ product }) => (

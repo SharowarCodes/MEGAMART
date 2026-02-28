@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNotification } from '../contexts/NotificationContext';
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle, User, HelpCircle, FileText, Upload, ChevronDown, ChevronUp, Search, Star, Navigation } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle, User, HelpCircle, FileText } from 'lucide-react';
 
 const Contact = () => {
   const { showSuccess, showError, showInfo } = useNotification();
@@ -21,9 +21,6 @@ const Contact = () => {
     { id: 1, type: 'bot', text: 'Hello! Welcome to MegaMart Support. How can I help you today?' }
   ]);
   const [expandedFaq, setExpandedFaq] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedStore, setSelectedStore] = useState(null);
-  const [pincode, setPincode] = useState('');
 
   const contactInfo = [
     {
@@ -237,31 +234,6 @@ const Contact = () => {
         break;
       default:
         break;
-    }
-  };
-
-  const toggleFaq = (index) => {
-    setExpandedFaq(expandedFaq === index ? null : index);
-  };
-
-  const filteredFaqs = faqs.filter(faq =>
-    faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const searchStoresByPincode = () => {
-    if (!pincode.trim()) {
-      showError('Please enter a pincode');
-      return;
-    }
-
-    const foundStore = stores.find(store => store.pincode === pincode);
-    if (foundStore) {
-      setSelectedStore(foundStore);
-      showSuccess(`Found store: ${foundStore.name}`);
-    } else {
-      showError('No store found for this pincode');
-      setSelectedStore(null);
     }
   };
 

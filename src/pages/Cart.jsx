@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
 import { useWishlist } from '../contexts/WishlistContext';
 import { useNotification } from '../contexts/NotificationContext';
-import { ShoppingCart, Heart, Trash2, Plus, Minus, ArrowRight, Tag, Truck, Shield, Lock, Zap } from 'lucide-react';
+import { ShoppingCart, Heart, Trash2, Plus, Minus, ArrowRight, Truck, Shield, Lock, Zap } from 'lucide-react';
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -51,7 +51,6 @@ const Cart = () => {
 
   const subtotal = getSubtotal();
   const discount = appliedCoupon ? (subtotal * appliedCoupon.discount) / 100 : 0;
-  const finalSubtotal = subtotal - discount;
   const tax = getTax();
   const shipping = getShipping();
   const total = getTotal() - discount;
