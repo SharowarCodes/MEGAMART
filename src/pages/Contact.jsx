@@ -20,7 +20,6 @@ const Contact = () => {
   const [chatMessages, setChatMessages] = useState([
     { id: 1, type: 'bot', text: 'Hello! Welcome to MegaMart Support. How can I help you today?' }
   ]);
-  const [expandedFaq, setExpandedFaq] = useState(null);
 
   const contactInfo = [
     {
@@ -46,42 +45,6 @@ const Contact = () => {
       title: 'Business Hours',
       details: ['Customer Service: 24/7', 'Office Hours: 9AM-6PM'],
       description: 'We\'re always here to help'
-    }
-  ];
-
-  const stores = [
-    {
-      id: 1,
-      name: 'MegaMart Bangalore',
-      address: '123 Tech Park, Electronic City, Bangalore',
-      pincode: '560100',
-      phone: '+91 123 456 7890',
-      email: 'bangalore@megamart.com',
-      timings: '9AM-9PM',
-      services: ['Pickup', 'Returns', 'Exchange'],
-      coordinates: { lat: 12.9716, lng: 77.5946 }
-    },
-    {
-      id: 2,
-      name: 'MegaMart Mumbai',
-      address: '456 Commercial St, Bandra, Mumbai',
-      pincode: '400050',
-      phone: '+91 987 654 3210',
-      email: 'mumbai@megamart.com',
-      timings: '10AM-8PM',
-      services: ['Pickup', 'Returns', 'Exchange', 'Installation'],
-      coordinates: { lat: 19.0760, lng: 72.8777 }
-    },
-    {
-      id: 3,
-      name: 'MegaMart Delhi',
-      address: '789 Market Complex, Connaught Place, Delhi',
-      pincode: '110001',
-      phone: '+91 456 789 0123',
-      email: 'delhi@megamart.com',
-      timings: '9AM-9PM',
-      services: ['Pickup', 'Returns', 'Exchange'],
-      coordinates: { lat: 28.6139, lng: 77.2090 }
     }
   ];
 

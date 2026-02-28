@@ -31,9 +31,6 @@ const Shop = () => {
   const [priceRange, setPriceRange] = useState([0, 50000]);
   const [sortBy, setSortBy] = useState('featured');
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
-  const [brands, setBrands] = useState([]);
   
   const {
     currentPage,
@@ -73,17 +70,7 @@ const Shop = () => {
   // Load initial data
   useEffect(() => {
     const loadData = async () => {
-      setLoading(true);
       try {
-        // Load categories and brands
-        const [categoriesRes, brandsRes] = await Promise.all([
-          productsAPI.getCategories(),
-          productsAPI.getBrands()
-        ]);
-        
-        setCategories(categoriesRes.data || []);
-        setBrands(brandsRes.data || []);
-        
         // Load products
         const searchFilters = {
           category: normalizedCategory || undefined,
@@ -105,8 +92,6 @@ const Shop = () => {
         setProducts(result.data || []);
       } catch (error) {
         console.error('Error loading products:', error);
-      } finally {
-        setLoading(false);
       }
     };
 

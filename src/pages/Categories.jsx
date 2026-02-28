@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, TrendingUp } from 'lucide-react';
 
 const Categories = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   // All 7 requested categories plus existing ones
   const mainCategories = [
@@ -111,8 +110,6 @@ const Categories = () => {
     <Link
       to={`/shop/${category.id}`}
       className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 bg-white border border-gray-100 hover:-translate-y-1"
-      onMouseEnter={() => setSelectedCategory && setSelectedCategory(category.id)}
-      onMouseLeave={() => setSelectedCategory && setSelectedCategory(null)}
     >
       <div className={`relative ${isLarge ? 'aspect-[16/9]' : 'aspect-square'}`}>
         {/* Background Gradient */}

@@ -479,7 +479,6 @@ export const productsAPI = {
   // Get price ranges
   getPriceRanges: async () => {
     await new Promise(resolve => setTimeout(resolve, 50));
-    const prices = enhancedProducts.map(p => p.price);
     const ranges = [
       { min: 0, max: 500, label: 'Under ₹500', count: 0 },
       { min: 500, max: 1000, label: '₹500 - ₹1,000', count: 0 },
